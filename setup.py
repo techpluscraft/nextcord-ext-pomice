@@ -3,12 +3,16 @@ import setuptools
 with open("README.md") as f:
     readme = f.read()
 
+packages = [
+    "nextcord.ext.pomice",
+]
+
 setuptools.setup(
     name="nextcord-ext-pomice",
     author="techpluscraft",
     version="1.1.7",
     url="https://github.com/techpluscraft/nextcord-ext-pomice",
-    packages=setuptools.find_packages(),
+    packages=packages,
     license="GPL",
     description="The modern Lavalink wrapper designed for nextcord",
     long_description=readme,
@@ -28,5 +32,6 @@ setuptools.setup(
         "Topic :: Internet"
     ],
     python_requires='>=3.8',
+    install_requires=['nextcord'],
     keywords=['pomice', 'lavalink', "nextcord"],
 )
