@@ -1,0 +1,7 @@
+*.pyc
+.git/
+__pycache/
+dist/
+nextcord_ext_pomice.egg-info/
+
+docs/_build/
