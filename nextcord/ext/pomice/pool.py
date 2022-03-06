@@ -13,8 +13,11 @@ from discord.ext import commands
 
 
 from . import (
-    __version__, 
     spotify,
+)
+
+from .gvar import (
+    __version__
 )
 
 from .enums import SearchType, NodeAlgorithm
