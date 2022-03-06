@@ -18,7 +18,7 @@ if not nextcord.__version__.startswith("2.0"):
         "Uninstall your current version and install discord.py 2.0 or a compatible fork."
     )
 
-__version__ = "1.1.6.9"
+__version__ = "1.1.7"
 __title__ = "nextcord-ext-pomice"
 __author__ = "techpluscraft"
 

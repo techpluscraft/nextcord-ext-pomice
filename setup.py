@@ -6,7 +6,7 @@ with open("README.md") as f:
 setuptools.setup(
     name="nextcord-ext-pomice",
     author="techpluscraft",
-    version="1.1.6.1.9",
+    version="1.1.7",
     url="https://github.com/techpluscraft/nextcord-ext-pomice",
     packages=setuptools.find_packages(),
     license="GPL",

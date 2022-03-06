@@ -17,12 +17,12 @@ sys.path.insert(0, os.path.abspath('..'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'Pomice'
-copyright = '2021, cloudwithax'
-author = 'cloudwithax'
+project = 'nextcord-ext-pomice'
+copyright = '2022, techpluscraft'
+author = 'techpluscraft'
 
 # The full version, including alpha/beta/rc tags
-release = '1.1.1'
+release = '1.1.7'
 
 
 # -- General configuration ---------------------------------------------------
