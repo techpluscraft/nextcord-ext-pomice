@@ -8,8 +8,8 @@ from typing import Dict, Optional, TYPE_CHECKING
 from urllib.parse import quote
 
 import aiohttp
-from nextcord import Client, VoiceRegion
-from nextcord.ext import commands
+from discord import Client, VoiceRegion
+from discord.ext import commands
 
 
 from . import (

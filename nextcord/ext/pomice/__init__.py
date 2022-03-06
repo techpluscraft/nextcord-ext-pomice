@@ -6,9 +6,9 @@ The modern Lavalink wrapper designed for discord.py.
 :copyright: 2021, cloudwithax
 :license: GPL-3.0
 """
-import nextcord
+import discord
 
-if not nextcord.__version__.startswith("2.0"):
+if not discord.__version__.startswith("2.0"):
     class DiscordPyOutdated(Exception):
         pass
 
@@ -18,7 +18,7 @@ if not nextcord.__version__.startswith("2.0"):
         "Uninstall your current version and install discord.py 2.0 or a compatible fork."
     )
 
-__version__ = "1.1.7"
+__version__ = "1.1.7.1"
 __title__ = "nextcord-ext-pomice"
 __author__ = "techpluscraft"
 

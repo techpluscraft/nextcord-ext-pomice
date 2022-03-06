@@ -10,7 +10,7 @@ packages = [
 setuptools.setup(
     name="nextcord-ext-pomice",
     author="techpluscraft",
-    version="1.1.7",
+    version="1.1.7.1",
     url="https://github.com/techpluscraft/nextcord-ext-pomice",
     packages=packages,
     license="GPL",

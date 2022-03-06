@@ -1,7 +1,7 @@
 import re
 from typing import Optional
 
-from nextcord.ext import commands
+from discord.ext import commands
 
 from .enums import SearchType
 
