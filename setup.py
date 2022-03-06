@@ -18,7 +18,6 @@ setuptools.setup(
     long_description=readme,
     long_description_content_type="text/markdown",
     include_package_data=True,
-    install_requires=None,
     extra_require=None,
     classifiers=[
         "Framework :: AsyncIO",
