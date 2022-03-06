@@ -5,13 +5,13 @@ This example aims to include everything you would need to make a fully functioni
 from a queue system, advanced queue control and more.
 """
 
-import discord
-import pomice
+import nextcord
+from nextcord.ext import pomice
 import asyncio
 import math
 import random
 
-from discord.ext import commands
+from nextcord.ext import commands
 from contextlib import suppress
 
 
@@ -22,10 +22,10 @@ class Player(pomice.Player):
         super().__init__(*args, **kwargs)
  
         self.queue = asyncio.Queue()
-        self.controller: discord.Message = None
+        self.controller: nextcord.Message = None
         # Set context here so we can send a now playing embed
         self.context: commands.Context = None
-        self.dj: discord.Member = None
+        self.dj: nextcord.Member = None
 
         self.pause_votes = set()
         self.resume_votes = set()
@@ -43,7 +43,7 @@ class Player(pomice.Player):
 
         # Check if theres a controller still active and deletes it
         if self.controller:
-            with suppress(discord.HTTPException):
+            with suppress(nextcord.HTTPException):
                 await self.controller.delete()
             
 
@@ -58,16 +58,16 @@ class Player(pomice.Player):
         # Call the controller (a.k.a: The "Now Playing" embed) and check if one exists
 
         if track.is_stream:
-            embed = discord.Embed(title="Now playing", description=f":red_circle: **LIVE** [{track.title}]({track.uri}) [{track.requester.mention}]")
+            embed = nextcord.Embed(title="Now playing", description=f":red_circle: **LIVE** [{track.title}]({track.uri}) [{track.requester.mention}]")
             self.controller = await self.context.send(embed=embed)
         else:
-            embed = discord.Embed(title=f"Now playing", description=f"[{track.title}]({track.uri}) [{track.requester.mention}]")
+            embed = nextcord.Embed(title=f"Now playing", description=f"[{track.title}]({track.uri}) [{track.requester.mention}]")
             self.controller = await self.context.send(embed=embed)
 
 
     async def teardown(self):
         """Clear internal states, remove player controller and disconnect."""
-        with suppress((discord.HTTPException), (KeyError)):
+        with suppress((nextcord.HTTPException), (KeyError)):
             await self.destroy()
             if self.controller:
                 await self.controller.delete() 
@@ -144,13 +144,13 @@ class Music(commands.Cog):
         await player.do_next()
         
     @commands.command(aliases=['join', 'joi', 'j', 'summon', 'su', 'con'])
-    async def join(self, ctx: commands.Context, *, channel: discord.VoiceChannel = None) -> None:
+    async def join(self, ctx: commands.Context, *, channel: nextcord.VoiceChannel = None) -> None:
         if not channel:
             channel = getattr(ctx.author.voice, "channel", None)
             if not channel:
                 return await ctx.send("You must be in a voice channel in order to use this command!")
 
-        # With the release of discord.py 1.7, you can now add a compatible
+        # With the release of nextcord 1.7, you can now add a compatible
         # VoiceProtocol class as an argument in VoiceChannel.connect().
         # This library takes advantage of that and is how you initialize a player.
         await ctx.author.voice.channel.connect(cls=Player)

@@ -2,7 +2,7 @@
 
 ![](https://raw.githubusercontent.com/cloudwithax/pomice/main/banner.jpg)
 
-The modern [Lavalink](https://github.com/freyacodes/Lavalink) wrapper designed for [discord.py](https://github.com/Rapptz/discord.py)
+The modern [Lavalink](https://github.com/freyacodes/Lavalink) wrapper designed for [nextcord](https://github.com/nextcord/nextcord)
 
 ![](https://img.shields.io/badge/license-GPL-2f2f2f) ![](https://img.shields.io/badge/python-3.8-2f2f2f) ![](https://img.shields.io/discord/899324069235810315) ![](https://readthedocs.org/projects/pomice/badge/?version=latest)
 
@@ -18,19 +18,19 @@ To install the library, you need the lastest version of pip and minimum Python 3
 
 > Stable version
 ```
-pip install pomice
+pip install nextcord-ext-pomice
 ```
 
 > Unstable version (this one gets more frequent changes)
 ```
-pip install git+https://github.com/cloudwithax/pomice
+pip install git+https://github.com/techpluscraft/nextcord-ext-pomice
 ```
 
 # Support
 
-The official documentation is [here](https://pomice.readthedocs.io/en/latest/)
+The official documentation is [here](https://nextcord-ext-pomice.readthedocs.io/en/latest/)
 
-You can join our support server [here](https://discord.gg/r64qjTSHG8)
+<!--You can join our support server [here](https://discord.gg/r64qjTSHG8)-->
 
 
 # Examples
@@ -39,18 +39,18 @@ In-depth examples are located in the examples folder
 Here's a quick example:
 
 ```py
-import pomice
-import discord
+from nextcord.ext import pomice
+import nextcord
 import re
 
-from discord.ext import commands
+from nextcord.ext import commands
 
 URL_REG = re.compile(r'https?://(?:www\.)?.+')
 
 class MyBot(commands.Bot):
     
     def __init__(self) -> None:
-        super().__init__(command_prefix='!', activity=discord.Activity(type=discord.ActivityType.listening, name='to music!'))
+        super().__init__(command_prefix='!', activity=nextcord.Activity(type=nextcord.ActivityType.listening, name='to music!'))
         
         self.add_cog(Music(self))
         
@@ -74,7 +74,7 @@ class Music(commands.Cog):
 
         
     @commands.command(name='join', aliases=['connect'])
-    async def join(self, ctx: commands.Context, *, channel: discord.TextChannel = None) -> None:
+    async def join(self, ctx: commands.Context, *, channel: nextcord.TextChannel = None) -> None:
         
         if not channel:
             channel = getattr(ctx.author.voice, 'channel', None)
@@ -116,7 +116,7 @@ Why is it saying "Cannot connect to host"?
 
 What experience do I need?
 
-- This library requires that you have some experience with Python, asynchronous programming and the discord.py library.
+- This library requires that you have some experience with Python, asynchronous programming and the nextcord library.
 
 Why is it saying "No module named pomice found"?
 

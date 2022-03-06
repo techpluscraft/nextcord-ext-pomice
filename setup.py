@@ -6,11 +6,11 @@ with open("README.md") as f:
 setuptools.setup(
     name="nextcord-ext-pomice",
     author="techpluscraft",
-    version="1.1.6.1",
-    url="https://github.com/cloudwithax/pomice",
+    version="1.1.6.1.9",
+    url="https://github.com/techpluscraft/nextcord-ext-pomice",
     packages=setuptools.find_packages(),
     license="GPL",
-    description="The modern Lavalink wrapper designed for Discord.py",
+    description="The modern Lavalink wrapper designed for nextcord",
     long_description=readme,
     long_description_content_type="text/markdown",
     include_package_data=True,
@@ -28,5 +28,5 @@ setuptools.setup(
         "Topic :: Internet"
     ],
     python_requires='>=3.8',
-    keywords=['pomice', 'lavalink', "discord.py"],
+    keywords=['pomice', 'lavalink', "nextcord"],
 )

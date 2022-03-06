@@ -1,13 +1,13 @@
-import discord
-import pomice
-from discord.ext import commands
+import nextcord
+from nextcord.ext import pomice
+from nextcord.ext import commands
 
 
 class MyBot(commands.Bot):
     def __init__(self) -> None:
         super().__init__(
             command_prefix="!",
-            activity=discord.Activity(type=discord.ActivityType.listening, name="to music!")
+            activity=nextcord.Activity(type=nextcord.ActivityType.listening, name="to music!")
         )
   
         self.add_cog(Music(self))
@@ -38,7 +38,7 @@ class Music(commands.Cog):
         print(f"Node is ready!")
         
     @commands.command(aliases=["connect"])
-    async def join(self, ctx: commands.Context, *, channel: discord.VoiceChannel = None) -> None:
+    async def join(self, ctx: commands.Context, *, channel: nextcord.VoiceChannel = None) -> None:
         if not channel:
             channel = getattr(ctx.author.voice, "channel", None)
             if not channel:
@@ -47,7 +47,7 @@ class Music(commands.Cog):
                     "without specifying the channel argument."
                 )
 
-        # With the release of discord.py 1.7, you can now add a compatible
+        # With the release of nextcord.py 1.7, you can now add a compatible
         # VoiceProtocol class as an argument in VoiceChannel.connect().
         # This library takes advantage of that and is how you initialize a player.
         await ctx.author.voice.channel.connect(cls=pomice.Player)
