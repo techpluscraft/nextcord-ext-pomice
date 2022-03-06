@@ -8,8 +8,8 @@ from typing import Dict, Optional, TYPE_CHECKING
 from urllib.parse import quote
 
 import aiohttp
-from discord import Client, VoiceRegion
-from discord.ext import commands
+from nextcord import Client, VoiceRegion
+from nextcord.ext import commands
 
 
 from . import (
@@ -257,9 +257,12 @@ class Node:
         for player in self.players.copy().values():
             await player.destroy()
 
+        if self._spotify_client_id and self._spotify_client_secret:
+            await self._spotify_client.close()
+
         await self._websocket.close()
         del self._pool.nodes[self._identifier]
-        self.available = False
+        self._available = False
         self._task.cancel()
 
     async def build_track(

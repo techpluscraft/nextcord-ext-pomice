@@ -5,13 +5,13 @@ from typing import (
     Optional
 )
 
-from discord import (
+from nextcord import (
     Client,
     Guild,
     VoiceChannel,
     VoiceProtocol
 )
-from discord.ext import commands
+from nextcord.ext import commands
 
 from . import events
 from .enums import SearchType

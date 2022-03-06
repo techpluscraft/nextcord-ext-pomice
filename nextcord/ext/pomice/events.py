@@ -1,4 +1,4 @@
-from discord import Client
+from nextcord import Client
 
 from .pool import NodePool
 

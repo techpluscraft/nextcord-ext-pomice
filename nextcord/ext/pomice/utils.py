@@ -5,8 +5,8 @@ from typing import Union
 from timeit import default_timer as timer
 from itertools import zip_longest
 
-from discord import AutoShardedClient, Client
-from discord.ext.commands import AutoShardedBot, Bot
+from nextcord import AutoShardedClient, Client
+from nextcord.ext.commands import AutoShardedBot, Bot
 
 __all__ = [
     "ExponentialBackoff",
